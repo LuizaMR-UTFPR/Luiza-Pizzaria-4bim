@@ -1,0 +1,182 @@
+/* ======== CARDÁPIO SIMPLIFICADO ======== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fffaf4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======== CABEÇALHO ======== */
+header {
+  background-color: #d32f2f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.btn-voltar {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: #d32f2f;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #ffe6e6;
+}
+
+/* ======== CONTEÚDO ======== */
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ======== CARDS ======== */
+.cardapio-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.card-pizza {
+  background: #fff;
+  border: 1px solid #ffd6c1;
+  border-radius: 10px;
+  width: 240px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-pizza:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-pizza h2 {
+  color: #d32f2f;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.card-pizza p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.btn-add {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-add:hover {
+  background-color: #b71c1c;
+  transform: scale(1.03);
+}
+
+/* Quando o usuário adiciona uma pizza */
+.btn-add:active {
+  background-color: #8a0000;
+  transform: scale(0.97);
+}
+
+/* ======== INVENTÁRIO ATUAL ======== */
+.pedido-container {
+  width: 90%;
+  max-width: 700px;
+  background: #fff8f0;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ffd6c1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.pedido-container h2 {
+  text-align: center;
+  color: #d32f2f;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+}
+
+.pedido-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.pedido-container th, 
+.pedido-container td {
+  border: 1px solid #eee;
+  padding: 8px;
+  text-align: center;
+}
+
+.pedido-container th {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.btn-finalizar {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 16px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.btn-finalizar:hover {
+  background-color: #b71c1c;
+}
+
+/* ======== RODAPÉ ======== */
+footer {
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* ======== RESPONSIVO ======== */
+@media (max-width: 600px) {
+  .card-pizza {
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+}

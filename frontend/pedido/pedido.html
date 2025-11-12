@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - Pedido</title>
+    <link rel="stylesheet" href="pedido.css">
+</head>
+<body>
+    <header>
+        <h1>CRUD Pedido</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Cadastro de Pedido</h2>
+
+            <form id="pedidoForm">
+                <div class="search-container">
+                    <label for="searchId">Buscar por ID:</label>
+                    <div class="search-input-group">
+                        <input type="number" id="searchId" placeholder="Digite o ID do pedido">
+                        <button type="button" id="btnBuscar">🔍 Buscar</button>
+                        <button type="button" id="btnIncluir" class="btn-primary">Incluir</button>
+                        <button type="button" id="btnAlterar" class="btn-secondary" style="display: none;">Alterar</button>
+                        <button type="button" id="btnExcluir" class="btn-danger" style="display: none;">Excluir</button>
+                        <button type="button" id="btnSalvar" class="btn-save" style="display: none;">Salvar</button>
+                        <button type="button" id="btnCancelar" class="btn-cancel">Cancelar</button>
+                    </div>
+                </div>
+
+                <fieldset id="formFields">
+                    <legend>Dados do Pedido</legend>
+                    <div class="form-group">
+                        <label for="cliente_pessoa_id_pessoa">ID Cliente:</label>
+                        <input type="number" id="cliente_pessoa_id_pessoa" name="cliente_pessoa_id_pessoa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_total">Valor Total:</label>
+                        <input type="number" step="0.01" id="valor_total" name="valor_total" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status_pedido">Status:</label>
+                        <input type="text" id="status_pedido" name="status_pedido" value="Pendente">
+                    </div>
+                    <div class="form-group">
+                        <label for="data_pedido">Data:</label>
+                        <input type="datetime-local" id="data_pedido" name="data_pedido">
+                    </div>
+                </fieldset>
+
+                <fieldset id="pizzasFields">
+                    <legend>Pizzas do Pedido</legend>
+                    <div id="pizzasList"></div>
+                    <div class="form-group">
+                        <label for="pizzaSelect">Adicionar Pizza:</label>
+                        <select id="pizzaSelect"></select>
+                        <input type="number" id="pizzaQuantidade" min="1" value="1" style="width: 60px;">
+                        <button type="button" id="btnAddPizza">Adicionar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+<section class="list-section" id="listSection" style="display:none;">
+    <div class="table-container">
+        <table id="pedidosTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID Cliente</th>
+                    <th>Valor Total</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Pizzas</th>
+                </tr>
+            </thead>
+            <tbody id="pedidosTableBody">
+                <!-- Dados serão carregados dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CRUD Pedido</p>
+    </footer>
+
+    <div id="messageContainer" class="message-container"></div>
+
+    <script src="pedido.js" defer></script>
+</body>
+
+</html>

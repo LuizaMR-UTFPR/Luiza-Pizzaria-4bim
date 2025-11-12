@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios - Pizzaria</title>
+  <link rel="stylesheet" href="../menu.css">
+  <style>
+    #voltar-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #b30000;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    #voltar-btn:hover {
+      background-color: #8a0000;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <button id="voltar-btn" onclick="window.location.href='../menu.html'">⬅ Voltar</button>
+
+  <header>
+    <h1>Relatórios da Pizzaria</h1>
+  </header>
+
+  <main>
+    <div class="menu-container">
+      <div class="menu-card">
+        <h2>Mês com mais pedidos do ano</h2>
+        <a href="./relatorio_mes.html">Ver relatório</a>
+      </div>
+
+      <div class="menu-card">
+        <h2>Pizza mais vendida</h2>
+        <a href="./relatorio_pizza.html">Ver relatório</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sistema de Pizzaria</p>
+  </footer>
+</body>
+</html>

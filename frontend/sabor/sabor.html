@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD - Sabor</title>
+  <link rel="stylesheet" href="sabor.css">
+</head>
+<body>
+  <header>
+    <h1>CRUD Sabor</h1>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Cadastro de Sabor</h2>
+      <form id="saborForm">
+        <div class="search-container">
+          <label for="searchId">Buscar por ID:</label>
+          <div class="search-input-group">
+            <input type="number" id="searchId" placeholder="Digite o ID do sabor">
+            <button type="button" id="btnBuscar">🔍 Buscar</button>
+
+            <button type="button" id="btnIncluir" class="btn-primary">Incluir</button>
+            <button type="button" id="btnAlterar" class="btn-secondary" style="display:none;">Alterar</button>
+            <button type="button" id="btnExcluir" class="btn-danger" style="display:none;">Excluir</button>
+            <button type="button" id="btnSalvar" class="btn-save" style="display:none;">Salvar</button>
+            <button type="button" id="btnCancelar" class="btn-cancel">Cancelar</button>
+          </div>
+        </div>
+
+        <fieldset id="formFields">
+          <legend>Dados do Sabor</legend>
+
+          <div class="form-group">
+            <label for="nome_sabor">Nome:</label>
+            <input type="text" id="nome_sabor" name="nome_sabor" required>
+          </div>
+
+          <div class="form-group">
+            <label for="descricao_sabor">Descrição:</label>
+            <input type="text" id="descricao_sabor" name="descricao_sabor">
+          </div>
+        </fieldset>
+      </form>
+    </section>
+<section class="list-section" id="listSection" style="display:none;">
+  <div class="table-container">
+    <table id="saboresTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody id="saboresTableBody"></tbody>
+    </table>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CRUD Sabor</p>
+  </footer>
+
+  <div id="messageContainer" class="message-container"></div>
+
+  <script src="sabor.js" defer></script>
+</body>
+</html>

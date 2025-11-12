@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Principal - CRUD Pizzaria</title>
+  <link rel="stylesheet" href="menu.css">
+  <style>
+    /* 🔹 Botão de Voltar */
+    #voltar-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #b30000;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    #voltar-btn:hover {
+      background-color: #8a0000;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 60px; /* 🔹 Espaço para não sobrepor o botão */
+    }
+
+    /* 🔹 Ajuste opcional para alinhar o card de Relatórios */
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      width: 90%;
+      max-width: 1000px;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔹 Botão de voltar -->
+  <button id="voltar-btn" onclick="window.location.href='index.html?noRedirect=true'">⬅ Voltar</button>
+
+  <header>
+    <h1>Menu Principal - CRUD Pizzaria</h1>
+  </header>
+
+  <main>
+    <div class="menu-container">
+      <div class="menu-card">
+        <h2>Pizza</h2>
+        <a href="pizza/pizza.html">Acessar</a>
+      </div>
+      <div class="menu-card">
+        <h2>Sabor</h2>
+        <a href="sabor/sabor.html">Acessar</a>
+      </div>
+      <div class="menu-card">
+        <h2>Cliente</h2>
+        <a href="cliente/cliente.html">Acessar</a>
+      </div>
+      <div class="menu-card">
+        <h2>Funcionário</h2>
+        <a href="funcionario/funcionario.html">Acessar</a>
+      </div>
+      <div class="menu-card">
+        <h2>Pedido</h2>
+        <a href="pedido/pedido.html">Acessar</a>
+      </div>
+      <div class="menu-card">
+        <h2>Pessoa</h2>
+        <a href="pessoa/pessoa.html">Acessar</a>
+      </div>
+
+      <!-- 🔹 Novo card de Relatórios (mesmo estilo dos outros) -->
+      <div class="menu-card">
+        <h2>Relatórios</h2>
+        <a href="relatorio/relatorio.html">Acessar</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sistema de Pizzaria</p>
+  </footer>
+</body>
+</html>
