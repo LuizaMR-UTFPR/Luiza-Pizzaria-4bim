@@ -42,3 +42,8 @@ Apesar de ter enfrentado dificuldades com a comunicação entre o backend e o ba
 Em resumo, o projeto me proporcionou uma boa base em desenvolvimento web e reforçou meu interesse pela área de frontend, onde pretendo continuar me aperfeiçoando e criando interfaces cada vez mais funcionais e boas.
 
 
+
+
+Eu vou sentir saudades das suas aulas e de você, Radames. Você é um dos meus professores favoritos do técnico, e levarei todo o conhecimento compatilhado comigo nos próximos anos do curso:)
+
+- Luiza Marcacini Rodolfo 
