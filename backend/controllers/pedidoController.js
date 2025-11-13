@@ -23,30 +23,42 @@ exports.listarPedidos = async (req, res) => {
   }
 };
 
+
 // Cria um novo pedido e seus itens
 exports.criarPedido = async (req, res) => {
   try {
-    const { cliente_pessoa_id_pessoa, valor_total, status_pedido, data_pedido, pizzas } = req.body;
+    const { cliente_pessoa_id_pessoa, valor_total, status_pedido, pizzas } = req.body;
+
     if (!cliente_pessoa_id_pessoa || !valor_total || !Array.isArray(pizzas) || pizzas.length === 0) {
       return res.status(400).json({ error: 'Dados obrigatórios faltando' });
     }
-    const dataPedidoFinal = data_pedido && data_pedido.trim() !== '' ? data_pedido : null;
+
+    // Gera automaticamente a data/hora atual do pedido
+    const dataPedido = new Date().toISOString(); // formato padrão ISO, fácil de ler no frontend
+
     const pedidoResult = await query(
-      'INSERT INTO pedido (cliente_pessoa_id_pessoa, valor_total, status_pedido, data_pedido) VALUES ($1, $2, $3, $4) RETURNING *',
-      [cliente_pessoa_id_pessoa, valor_total, status_pedido ?? 'Pendente', dataPedidoFinal]
+      `INSERT INTO pedido (cliente_pessoa_id_pessoa, valor_total, status_pedido, data_pedido)
+       VALUES ($1, $2, $3, $4) RETURNING *`,
+      [cliente_pessoa_id_pessoa, valor_total, status_pedido ?? 'Pendente', dataPedido]
     );
+
     const pedido = pedidoResult.rows[0];
+
     for (const item of pizzas) {
       await query(
-        'INSERT INTO pedido_has_pizza (pedido_id_pedido, pizza_id_pizza, quantidade) VALUES ($1, $2, $3)',
+        `INSERT INTO pedido_has_pizza (pedido_id_pedido, pizza_id_pizza, quantidade)
+         VALUES ($1, $2, $3)`,
         [pedido.id_pedido, item.pizza_id_pizza, item.quantidade ?? 1]
       );
     }
+
     res.status(201).json(pedido);
   } catch (error) {
+    console.error('Erro ao criar pedido:', error);
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 };
+
 
 // Busca um pedido por ID
 exports.obterPedido = async (req, res) => {
