@@ -55,3 +55,50 @@ INSERT INTO pedido (cliente_pessoa_id_pessoa, valor_total) VALUES
 INSERT INTO pedido_has_pizza (pedido_id_pedido, pizza_id_pizza, quantidade) VALUES
 (1, 1, 1),
 (1, 2, 1);
+
+
+-- ========================================================
+-- INSERIR GERENTE MESTRE (ID = 21)
+-- ========================================================
+
+-- 1️⃣  Garantir que o ID 21 será usado (opcional)
+ALTER SEQUENCE pessoa_id_pessoa_seq RESTART WITH 21;
+
+-- 2️⃣  Inserir a pessoa
+INSERT INTO pessoa (
+  id_pessoa,
+  nome_pessoa,
+  email_pessoa,
+  senha_pessoa,
+  telefone_pessoa,
+  primeiro_acesso_pessoa,
+  data_nascimento
+) VALUES (
+  21,
+  'Gerente Mestre',
+  'gerentemestre@pizzaria.com',
+  '123456',                    -- senha em texto simples
+  '(44) 99999-0000',
+  FALSE,
+  '1980-01-01'
+);
+
+-- 3️⃣  Inserir como funcionário
+INSERT INTO funcionario (
+  pessoa_id_pessoa,
+  cargo_funcionario,
+  salario_funcionario
+) VALUES (
+  21,
+  'Gerente Mestre',
+  8000.00
+);
+
+-- 4️⃣  Inserir como gerente
+INSERT INTO gerente (pessoa_id_pessoa)
+VALUES (21);
+
+-- ✅ Verificação opcional
+SELECT * FROM pessoa WHERE id_pessoa = 21;
+SELECT * FROM funcionario WHERE pessoa_id_pessoa = 21;
+SELECT * FROM gerente WHERE pessoa_id_pessoa = 21;
