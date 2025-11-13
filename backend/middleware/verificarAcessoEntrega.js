@@ -12,7 +12,7 @@ async function verificarAcessoEntrega(req, res, next) {
     console.log(`Verificando acesso à entrega para user ${user.id}`);
 
     // Gerente mestre (ID 21) tem acesso automático
-    if (user.id === 21) {
+     if (user.id === 21 || user.id_pessoa === 21) {
       console.log(`Gerente mestre ${user.id} autorizado`);
       return next();
     }
@@ -43,5 +43,6 @@ async function verificarAcessoEntrega(req, res, next) {
     res.status(500).json({ message: 'Erro no servidor' });
   }
 }
+
 
 module.exports = verificarAcessoEntrega;
