@@ -6,7 +6,7 @@ const dbConfig = {
   host: 'localhost',
   port: 5432, 
   user: 'postgres',      // ajuste conforme seu PostgreSQL
-  password: 'mr210909',  // ajuste conforme sua senha
+  password: 'sua senha',  // ajuste conforme sua senha
   database: 'pizzaria',  // nome do banco da pizzaria
   ssl: false,
   idleTimeoutMillis: 30000,
@@ -85,3 +85,4 @@ module.exports = {
   transaction,
   testConnection
 };
+
