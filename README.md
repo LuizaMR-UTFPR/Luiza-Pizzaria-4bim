@@ -48,5 +48,6 @@ Em resumo, o projeto me proporcionou uma boa base em desenvolvimento web e refor
 
 
 Eu vou sentir saudades das suas aulas e de você, Radames. Você é um dos meus professores favoritos do técnico, e levarei todo o conhecimento compatilhado comigo nos próximos anos do curso:)
+(Obs: após a apresentação em sala de aula, eu coloquei um CRUD para importar imagens no cardápio)
 
 Luiza Marcacini Rodolfo 
