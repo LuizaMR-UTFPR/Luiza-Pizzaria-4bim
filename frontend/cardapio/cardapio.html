@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardápio - Pizzaria</title>
+  <link rel="stylesheet" href="cardapio.css" />
+</head>
+<body>
+  <header>
+   <button id="btnVoltar" class="btn-voltar" onclick="window.location.href='../index.html'">⬅ Voltar</button>
+<h1>Cardápio de Pizzas</h1>
+
+  </header>
+
+  <main>
+  <div id="cardapioContainer" class="cardapio-container"></div>
+
+  <section class="pedido-container">
+  <h2>Seu Pedido</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Pizza</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaPedido">
+      <tr><td colspan="4">Nenhum item no pedido.</td></tr>
+    </tbody>
+  </table>
+  <button onclick="finalizarPedido()" class="btn-finalizar">Finalizar Pedido</button>
+</section>
+
+</main>
+
+
+  <footer>
+    <p>&copy; 2025 Pizzaria</p>
+  </footer>
+  <script src="cardapio.js" defer></script>
+</body>
+</html>

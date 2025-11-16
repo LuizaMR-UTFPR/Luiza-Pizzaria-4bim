@@ -1,0 +1,116 @@
+/* 🔹 Estilo principal do menu da pizzaria */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo da página */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #0f0f0f, #1b1b1b);
+  color: #e0e0e0;
+  transition: background 0.3s, color 0.3s;
+  padding: 40px 10px;
+}
+
+/* Cabeçalho */
+header h1 {
+  margin-bottom: 40px;
+  font-size: 2.4rem;
+  color: #ff2b06;
+  text-shadow: 0 0 12px rgba(255, 43, 6, 0.4);
+  letter-spacing: 1px;
+}
+
+/* Container do menu */
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  width: 90%;
+  max-width: 1000px;
+  justify-content: center;
+}
+
+/* Cartões do menu */
+.menu-card {
+  background: #1f1f1f;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  background: #272727;
+  box-shadow: 0 12px 25px rgba(255, 43, 6, 0.4);
+  border-color: rgba(255, 43, 6, 0.3);
+}
+
+/* Títulos dos cartões */
+.menu-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  color: #ff2b06;
+  text-shadow: 0 0 8px rgba(255, 43, 6, 0.3);
+}
+
+/* Links dentro dos cartões */
+.menu-card a {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #61dafb;
+  text-decoration: none;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.menu-card a:hover {
+  background: #61dafb;
+  color: #121212;
+  transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #888;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .menu-card {
+    padding: 20px 15px;
+  }
+
+  .menu-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .menu-card a {
+    font-size: 1rem;
+  }
+}

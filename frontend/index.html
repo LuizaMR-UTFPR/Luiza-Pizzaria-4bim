@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzaria Freddão</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header>
+    <h1>Pizzaria do Freddão</h1>
+    <nav>
+      <ul>
+        <li><button class="menucruds" onclick="window.location.href='menu.html'">Menu CRUDs</button></li>
+        <li><button class="painelcozinha" onclick="window.location.href='cozinheiro/cozinheiro.html'" style="display:none;">Painel da Cozinha</button></li>
+        <li><button class="painelentrega" onclick="window.location.href='entregador/entregador.html'" style="display:none;">Painel de Entregas</button></li>
+        <li><a href="cardapio/cardapio.html">Cardápio</a></li>
+        <li><a href="#">Delivery</a></li>
+        <li id="usuario-info"></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h4>Desde 1964</h4>
+      <h2>Pizzaria Freddão</h2>
+      <p>Queremos que você tenha a melhor experiência ao apreciar todo o sabor de uma verdadeira pizza. 
+         Tradição e qualidade que se iniciam desde a escolha minuciosa dos ingredientes.</p>
+      <button class="btn btn-red" onclick="window.location.href='cardapio/cardapio.html'">Peça já a sua!</button>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Pizzaria Freddão - Todos os direitos reservados</p>
+  </footer>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const usuarioInfo = document.getElementById('usuario-info');
+  const menuCrud = document.querySelector('.menucruds');
+
+  // Função segura para obter o usuário
+  function getUsuario() {
+    try {
+      const data = localStorage.getItem('usuario') || localStorage.getItem('user');
+      if (!data || data === "undefined" || data === "null") return null;
+      return JSON.parse(data);
+    } catch {
+      return null;
+    }
+  }
+
+  const usuario = getUsuario();
+
+  // 🔄 Redireciona automaticamente para o painel específico do usuário
+  // APENAS se não houver parâmetro ?noRedirect na URL (para permitir voltar da página de cruds)
+  const params = new URLSearchParams(window.location.search);
+  const noRedirect = params.has('noRedirect');
+
+  if (!noRedirect && usuario && usuario.nome) {
+    if (usuario.isCozinheiro) {
+      window.location.href = 'cozinheiro/cozinheiro.html';
+      return;
+    }
+    if (usuario.isEntregador) {
+      window.location.href = 'entregador/entregador.html';
+      return;
+    }
+    if (usuario.isGerente) {
+      window.location.href = 'menu.html';
+      return;
+    }
+  }
+
+  if (usuario && usuario.nome) {
+    // Mostra nome e botão de sair
+    usuarioInfo.innerHTML = `
+      <span>Olá, <strong>${usuario.nome}</strong></span>
+      <button id="logoutBtn" style="
+        background:none;
+        border:none;
+        color:#fff;
+        font-weight:bold;
+        margin-left:10px;
+        cursor:pointer;
+      ">Sair</button>
+    `;
+
+    // Se o usuário NÃO for gerente, esconde o botão Menu CRUDs
+    if (menuCrud && !usuario.isGerente) {
+      menuCrud.style.display = 'none';
+    }
+
+    // Mostra botão "Painel da Cozinha" apenas para cozinheiros e gerente mestre (ID 21)
+    const painelCozinha = document.querySelector('.painelcozinha');
+    if (painelCozinha) {
+      if (usuario.isCozinheiro || (usuario.isGerente && usuario.id === 21)) {
+        painelCozinha.style.display = 'inline-block';
+      } else {
+        painelCozinha.style.display = 'none';
+      }
+    }
+
+    // Mostra botão "Painel de Entregas" apenas para entregadores e gerente mestre (ID 21)
+    const painelEntrega = document.querySelector('.painelentrega');
+    if (painelEntrega) {
+      if (usuario.isEntregador || (usuario.isGerente && usuario.id === 21)) {
+        painelEntrega.style.display = 'inline-block';
+      } else {
+        painelEntrega.style.display = 'none';
+      }
+    }
+
+    // Evento de logout
+    const logoutBtn = document.getElementById('logoutBtn');
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('usuario');
+      localStorage.removeItem('user');
+      window.location.reload();
+    });
+
+  } else {
+    // Não logado → esconde botão CRUDs e mostra login
+    if (menuCrud) menuCrud.style.display = 'none';
+    const painelCozinha = document.querySelector('.painelcozinha');
+    if (painelCozinha) painelCozinha.style.display = 'none';
+    const painelEntrega = document.querySelector('.painelentrega');
+    if (painelEntrega) painelEntrega.style.display = 'none';
+    usuarioInfo.innerHTML = `<a href="login/login.html">Login</a>`;
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciar Imagens de Pizzas</title>
+  <link rel="stylesheet" href="imagem.css" />
+</head>
+<body>
+  <header>
+    <button id="btnVoltar" class="btn-voltar" onclick="window.location.href='../index.html'">⬅ Voltar</button>
+    <h1>Gerenciar Imagens de Pizzas</h1>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h2>CRUD de Imagens</h2>
+
+      <form id="imagemForm">
+        <div class="search-container">
+          <label for="searchId">Buscar por ID:</label>
+          <div class="search-input-group">
+            <input type="number" id="searchId" placeholder="Digite o ID da imagem">
+            <button type="button" id="btnBuscar">🔍 Buscar</button>
+
+            <button type="button" id="btnIncluir" class="btn-primary">Incluir</button>
+            <button type="button" id="btnAlterar" class="btn-secondary" style="display:none">Alterar</button>
+            <button type="button" id="btnExcluir" class="btn-danger" style="display:none">Excluir</button>
+            <button type="button" id="btnSalvar" class="btn-save" style="display:none">Salvar</button>
+            <button type="button" id="btnCancelar" class="btn-cancel">Cancelar</button>
+          </div>
+        </div>
+
+        <fieldset id="formFields">
+          <legend>Dados da Imagem</legend>
+
+          <div class="form-group">
+            <label for="pizzaSelect">Pizza (ID):</label>
+            <select id="pizzaSelect" name="pizzaSelect">
+              <option value="">-- Carregando pizzas --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="imagemInput">Arquivo de Imagem:</label>
+            <input type="file" id="imagemInput" accept="image/*" />
+          </div>
+
+          <div class="preview-container">
+            <img id="previewImagem" src="" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;" />
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section class="list-section" id="listSection">
+      <h2>Imagens Cadastradas</h2>
+      <div class="table-container">
+        <table id="imagensTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pizza</th>
+              <th>Arquivo</th>
+              <th>Data Upload</th>
+            </tr>
+          </thead>
+          <tbody id="imagensTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="messageContainer" class="message-container"></div>
+
+  <script src="imagem.js"></script>
+</body>
+</html>

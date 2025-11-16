@@ -1,0 +1,239 @@
+/* pizza.css */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo da página */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #121212;
+  color: #e0e0e0;
+  transition: background 0.3s, color 0.3s;
+  padding: 20px;
+}
+
+/* Cabeçalhos */
+header h1 {
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  color: #ad0e00;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+/* Menu cards (do menu principal) */
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.menu-card {
+  background: #1f1f1f;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: #272727;
+  box-shadow: 0 12px 25px rgba(255,111,97,0.4);
+}
+
+.menu-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ad0e00;
+}
+
+.menu-card a {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #61dafb;
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu-card a:hover {
+  background: #61dafb;
+  color: #1f1f1f;
+}
+
+/* Formulários e seções CRUD */
+form, fieldset {
+  width: 100%;
+  max-width: 700px;
+  background: #1f1f1f;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+  border: 1px solid #272727;
+}
+
+fieldset legend {
+  color: #ad0e00;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #e0e0e0;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #272727;
+  color: #e0e0e0;
+  transition: border 0.3s, background 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #61dafb;
+  outline: none;
+  background: #2f2f2f;
+}
+
+/* Botões */
+button {
+  padding: 10px 18px;
+  margin: 5px 2px 5px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s, color 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(97,218,251,0.5);
+}
+
+/* Botões específicos */
+.btn-primary {
+  background: #61dafb;
+  color: #1f1f1f;
+}
+
+.btn-primary:hover {
+  background: #21a1f1;
+}
+
+.btn-secondary {
+  background: #ad0e00;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #ad0e00;
+}
+
+.btn-danger {
+  background: #ad0e00;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #ad0e00;
+}
+
+.btn-save {
+  background: #2ecc71;
+  color: #fff;
+}
+
+.btn-save:hover {
+  background: #27ae60;
+}
+
+.btn-cancel {
+  background: #888;
+  color: #fff;
+}
+
+.btn-cancel:hover {
+  background: #555;
+}
+
+/* Tabela de listagem */
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background: #272727;
+  color: #ad0e00;
+}
+
+tr:hover {
+  background: #2f2f2f;
+}
+
+/* Mensagens */
+.message-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #61dafb;
+  color: #1f1f1f;
+  padding: 12px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  display: none; /* será ativado via JS */
+}
+
+/* Rodapé */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}

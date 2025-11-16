@@ -1,0 +1,81 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e0e0e0;
+}
+
+form {
+  background: #fff;
+  padding: 35px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+form input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+  outline: none;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+form .link-register {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+form .link-register:hover {
+  text-decoration: underline;
+}
